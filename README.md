@@ -1,6 +1,12 @@
 # AnimeEffects-nix
 
-## Usage example
+## Quick usage
+
+```shell
+nix run github:h-banii/AnimeEffects-nix
+```
+
+## Configuration example
 
 ```nix
 {
