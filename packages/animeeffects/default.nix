@@ -19,6 +19,12 @@ stdenv.mkDerivation {
     hash = "sha256-YTtLa4v5jXAE+62F9dmkkBE4MRGSM3CTMuMrNoQE6Gc=";
   };
 
+  # TODO: Add patch to use tmpdir instead of removing checks
+  # TODO: Upstream, if possible
+  patches = [
+    ./ignore-ffmpeg-checks.patch
+  ];
+
   nativeBuildInputs = [
     cmake
     ninja
