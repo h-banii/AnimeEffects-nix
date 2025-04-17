@@ -20,8 +20,8 @@
           pkgs = pkgsFor.${system};
         in
         {
-          default = self.packages.${system}.animeeffects; 
-          animeeffects = pkgs.callPackage ./package.nix { };
+          default = self.packages.${system}.animeeffects;
+          animeeffects = pkgs.callPackage ./packages/animeeffects { };
         }
       );
     };
