@@ -8,15 +8,15 @@
   ffmpeg,
   withFfmpeg ? true,
 }:
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "animeeffects";
-  version = "1.6.0";
+  version = "1.6.1";
 
   src = fetchFromGitHub {
     owner = "AnimeEffectsDevs";
     repo = "AnimeEffects";
-    rev = "v1.6";
-    hash = "sha256-YTtLa4v5jXAE+62F9dmkkBE4MRGSM3CTMuMrNoQE6Gc=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-cOtAMsvbQM+KfsUWw059RteJgWv0gIKFUNZhOneVp5w=";
   };
 
   # TODO: Add patch to use tmpdir instead of removing checks
@@ -70,4 +70,4 @@ stdenv.mkDerivation {
     description = "2D Animation Tool";
     mainProgram = "AnimeEffects";
   };
-}
+})
