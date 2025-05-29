@@ -21,9 +21,7 @@ stdenv.mkDerivation {
 
   # TODO: Add patch to use tmpdir instead of removing checks
   # TODO: Upstream, if possible
-  patches = [
-    ./ignore-ffmpeg-checks.patch
-  ];
+  patches = lib.optional withFfmpeg ./ignore-ffmpeg-checks.patch;
 
   nativeBuildInputs = [
     cmake
@@ -39,9 +37,7 @@ stdenv.mkDerivation {
       qtmultimedia
       qtimageformats
     ]
-    ++ lib.optionals withFfmpeg [
-      ffmpeg
-    ];
+    ++ lib.optional withFfmpeg ffmpeg;
 
   propagateBuildInputs = with qt6; [
     qtsvg
