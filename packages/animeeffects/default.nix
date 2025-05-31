@@ -32,16 +32,11 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs =
     with qt6;
     [
-      qtbase
       qt5compat
       qtmultimedia
       qtimageformats
     ]
     ++ lib.optional withFfmpeg ffmpeg;
-
-  propagateBuildInputs = with qt6; [
-    qtsvg
-  ];
 
   hardeningDisable = [ "format" ];
 
