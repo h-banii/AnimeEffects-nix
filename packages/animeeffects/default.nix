@@ -10,18 +10,14 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "animeeffects";
-  version = "1.6.1";
+  version = "1.7.0";
 
   src = fetchFromGitHub {
     owner = "AnimeEffectsDevs";
     repo = "AnimeEffects";
-    rev = "v${finalAttrs.version}";
-    hash = "sha256-cOtAMsvbQM+KfsUWw059RteJgWv0gIKFUNZhOneVp5w=";
+    rev = "v1.7";
+    hash = "sha256-1LLzASyvvJnJVe/tU3iZBuvMEOyijrti7yv6y3wvDww=";
   };
-
-  # TODO: Add patch to use tmpdir instead of removing checks
-  # TODO: Upstream, if possible
-  patches = lib.optional withFfmpeg ./ignore-ffmpeg-checks.patch;
 
   nativeBuildInputs = [
     cmake
