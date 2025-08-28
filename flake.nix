@@ -38,6 +38,7 @@
               qt6.full
               cmake
               clang
+              ninja
             ];
 
             CMAKE_EXPORT_COMPILE_COMMANDS = "ON";
