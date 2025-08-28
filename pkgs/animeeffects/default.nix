@@ -43,13 +43,8 @@ stdenv.mkDerivation (finalAttrs: {
     cp -pr --reflink=auto -- data $out/bin/data
     popd
 
-    icon_out=$out/share/icons/hicolor/256x256/apps
-    mkdir -p $icon_out
-    install -Dm444 ../dist/AnimeEffects.png "$icon_out/AnimeEffects.png"
-
-    desktop_entry_out=$out/share/applications
-    mkdir -p $desktop_entry_out
-    install -Dm444 ../dist/AnimeEffects.desktop "$desktop_entry_out/AnimeEffects.desktop"
+    install -Dm444 {../dist,"$out/share/icons/hicolor/256x256/apps"}/AnimeEffects.png
+    install -Dm444 {../dist,"$out/share/applications"}/AnimeEffects.desktop
 
     runHook postInstall
   '';
