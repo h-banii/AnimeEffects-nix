@@ -49,7 +49,7 @@
                 cmake -S . -B build -G "Ninja Multi-Config"
               }
               build() {
-                cmake --build build --config Debug
+                cmake --build build --config Debug -j $NIX_BUILD_CORES
               }
             '';
           };
