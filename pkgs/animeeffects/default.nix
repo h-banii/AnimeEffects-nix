@@ -30,14 +30,11 @@ stdenv.mkDerivation (finalAttrs: {
     qt6.wrapQtAppsHook
   ];
 
-  buildInputs =
-    with qt6;
-    [
-      qt5compat
-      qtmultimedia
-      qtimageformats
-    ]
-    ++ lib.optional withFfmpeg ffmpeg;
+  buildInputs = with qt6; [
+    qt5compat
+    qtmultimedia
+    qtimageformats
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -53,6 +50,8 @@ stdenv.mkDerivation (finalAttrs: {
 
     runHook postInstall
   '';
+
+  qtWrapperArgs = lib.optional withFfmpeg "--prefix PATH : ${lib.makeBinPath [ ffmpeg ]}";
 
   meta = {
     license = lib.licenses.gpl3Only;
