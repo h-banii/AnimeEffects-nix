@@ -19,6 +19,11 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-1LLzASyvvJnJVe/tU3iZBuvMEOyijrti7yv6y3wvDww=";
   };
 
+  # TODO: Upstream this
+  patches = [
+    ./use-tmp-to-check-ffmpeg.patch
+  ];
+
   nativeBuildInputs = [
     cmake
     ninja
