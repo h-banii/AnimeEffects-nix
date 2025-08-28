@@ -21,7 +21,7 @@
         in
         {
           default = self.packages.${system}.animeeffects;
-          animeeffects = pkgs.callPackage ./packages/animeeffects { };
+          animeeffects = pkgs.callPackage ./pkgs/animeeffects { };
         }
       );
     };
