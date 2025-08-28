@@ -38,8 +38,6 @@ stdenv.mkDerivation (finalAttrs: {
     ]
     ++ lib.optional withFfmpeg ffmpeg;
 
-  hardeningDisable = [ "format" ];
-
   installPhase = ''
     runHook preInstall
 
