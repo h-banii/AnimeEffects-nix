@@ -10,19 +10,14 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   pname = "animeeffects";
-  version = "1.7.0";
+  version = "1.7.0-unstable-2025-09-03";
 
   src = fetchFromGitHub {
     owner = "AnimeEffectsDevs";
     repo = "AnimeEffects";
-    rev = "v1.7";
-    hash = "sha256-1LLzASyvvJnJVe/tU3iZBuvMEOyijrti7yv6y3wvDww=";
+    rev = "24bdd2c6a9b6889caa48828f7b93d0074a337558";
+    hash = "sha256-H0+39jkmspes0/eLzmfeigVoMAVytilreNdF4U3gnlY=";
   };
-
-  # TODO: Upstream this
-  patches = [
-    ./use-tmp-to-check-ffmpeg.patch
-  ];
 
   nativeBuildInputs = [
     cmake
