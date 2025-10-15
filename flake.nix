@@ -21,7 +21,7 @@
         in
         {
           default = self.packages.${system}.animeeffects;
-          animeeffects = pkgs.callPackage ./pkgs/animeeffects { };
+          animeeffects = pkgs.qt6Packages.callPackage ./pkgs/animeeffects { };
         }
       );
 

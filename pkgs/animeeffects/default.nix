@@ -4,7 +4,13 @@
   fetchFromGitHub,
   cmake,
   ninja,
-  qt6,
+
+  wrapQtAppsHook,
+  qt5compat,
+  qtmultimedia,
+  qtimageformats,
+  qtwayland,
+
   ffmpeg,
   withFfmpeg ? true,
 }:
@@ -22,13 +28,14 @@ stdenv.mkDerivation (finalAttrs: {
   nativeBuildInputs = [
     cmake
     ninja
-    qt6.wrapQtAppsHook
+    wrapQtAppsHook
   ];
 
-  buildInputs = with qt6; [
+  buildInputs = [
     qt5compat
     qtmultimedia
     qtimageformats
+    qtwayland
   ];
 
   installPhase = ''
